@@ -1,46 +1,47 @@
-# A Short tutorial for Google Assistant Event. Node.js 
-I put here the most valuable information for Javascript, Node.js, MongoDb and Google Home. I collected some data and examples from different sources. You find a list all of them at the end of every section. :) 
+# A Short tutorial for Google Assistant Event. Node.js
+I put here the most valuable information for Javascript, Node.js, MongoDb and Google Home. I collected some data and examples from different sources. You find a list all of them at the end of every section. :)
 
-**Table of content** 
-- [Javascript code examples](#id-section1) 
-- [Node.js](#id-section2) 
-- [Google Assistant](#id-section3) 
+**Table of content**
+- [Javascript code examples](#id-section1)
+- [Node.js](#id-section2)
+- [Google Assistant](#id-section3)
 
-## Javascript Code examples <div id='id-section1'/> 
-Node.js is based on Javascript. 
-Examples come from: https://www.tutorialspoint.com/javascript/ 
+## Javascript Code examples <div id='id-section1'/>
+Node.js is based on Javascript.
+Most examples comes from: https://www.tutorialspoint.com/javascript/.
+
 ### JavaScript Variables
 ```javascript
-var name = "Ali";
-var money;
+const name = "Ali";
+let money;
 money = 2000.50;
 ```
 ### Variable Scope
 ```javascript
-var myVar = "global"; // Declare a global variable
+const myVar = 'global'; // Declare a global variable
 function checkscope( ) {
-	var myVar = "local";  // Declare a local variable
-             console.log(myVar);
+  const myVar = 'local'; // Declare a local variable
+  console.log(myVar);
 }
 ```
 ### Operator and Description
 
-+ +(Addition) 
-	+ Adds two operands Ex: A + B will give 30 
++ +(Addition)
+	+ Adds two operands Ex: A + B will give 30
 
-+  -(Subtraction) 
-	+ Subtracts the second operand from the first Ex: A - B will give -10 
++  -(Subtraction)
+	+ Subtracts the second operand from the first Ex: A - B will give -10
 
 + *(Multiplication)
-	+  Multiply both operands Ex: A * B will give 200 
+	+  Multiply both operands Ex: A * B will give 200
 
 + / (Division)
-	+  Divide the numerator by the denominator Ex: B / A will give 2 
+	+  Divide the numerator by the denominator Ex: B / A will give 2
 
-+ % (Modulus) Outputs the remainder of an integer division Ex: B % A will give 0 
++ % (Modulus) Outputs the remainder of an integer division Ex: B % A will give 0
 
 + ++ (Increment)
-	+  Increases an integer value by one Ex: A++ will give 11 
+	+  Increases an integer value by one Ex: A++ will give 11
 
 + -- (Decrement)
 	+  Decreases an integer value by one Ex: A-- will give 9
@@ -49,11 +50,11 @@ function checkscope( ) {
  + && (Logical AND)
 	+  If both the operands are non-zero, then the condition becomes true. Ex: (A && B) is true.
 
- + || (Logical OR) 
-	+ If any of the two operands are non-zero, then the condition becomes true. Ex: (A || B) is true. 
+ + || (Logical OR)
+	+ If any of the two operands are non-zero, then the condition becomes true. Ex: (A || B) is true.
 
  + ! (Logical NOT)
-	+  Reverses the logical state of its operand. If a condition is true, then the Logical NOT operator will make it 
+	+  Reverses the logical state of its operand. If a condition is true, then the Logical NOT operator will make it
 
  + false. Ex: ! (A && B)
 	 +  is false. Assignment Operators
@@ -85,37 +86,58 @@ function checkscope( ) {
 
 ### if...else statement
 ```javascript
-var age = 15;
+const age = 15;
 
-if( age > 18 ){
-   console.log("Qualifies for driving");
-}
-else{
-   console.log("Does not qualify for driving");
+if ( age > 18 ) {
+  console.log('Qualifies for driving');
+} else {
+  console.log('Does not qualify for driving');
 }
 
 ```
 ### For Loop
 ```javascript
-var count;
-console.log ("Starting Loop");
+let count;
+console.log('Starting Loop');
 
-for(count = 0; count < 10; count++){
-   console.log ("Current Count : " + count );
-   console.log ("");
+for (count = 0; count < 10; count++) {
+  console.log('Current Count : ' + count );
+  console.log('');
 }
 
-console.log ("Loop stopped!");
+console.log('Loop stopped!');
 ```
 ### Declaring array
 ```javascript
-var fruits = [ "apple", "orange", "mango" ];
-fruits.length; 
+const fruits = ['apple', 'orange', 'mango'];
+fruits.length;
+console.log('The lenght of this array is ', fruits.length);
+console.log('This array: ' + fruits);
 
 ```
 ### Declaring function
 ```javascript
-function sayHello(name)
+function sayHello(name) {
+  cosole.log('Hello '+name);
+}
+
+sayHello('Tomasz');
+```
+
+```javascript
+const sayHello = (name) =>
+{
+	cosole.log("Hello "+name);
+}
+
+sayHello(“Tomasz”)
+```
+
+### Declaring function as an arrow function
+In our project we are using most the time arrow functions! As you see above arrow function is the same as the usual function in JS.
+
+```javascript
+const sayHello = (name) =>
 {
 	cosole.log("Hello "+name);
 }
@@ -123,12 +145,22 @@ function sayHello(name)
 sayHello(“Tomasz”)
 
 ```
+
 ### Anonymous function
 
 ```javascript
-var greetMe = function(){
-	console.log(“hi”);
-}
+const greetMe = function() {
+  console.log('hi');
+};
+
+greetMe();
+```
+
+### Anonymous function as an arrow function
+```javascript
+const greetMe = () =>{
+  console.log('hi');
+};
 
 greetMe();
 ```
@@ -137,18 +169,18 @@ greetMe();
 You can see an object as a such block of values
 
 ```javascript
-var person = {
-	firstName: "Tomasz",
-	lastName: "Krajewski",
-	greet:	function(){
-		console.log('Hello '+this.firstName + " " + this.lastName);
-	}
+const person = {
+  firstName: 'Tomasz',
+  lastName: 'Krajewski',
+  greet: function() {
+    console.log('Hello '+this.firstName + ' ' + this.lastName);
+  },
 };
 
 person.greet();
 
 console.log(person.firstName);
-console.log(person['firstName'];
+console.log(person['firstName']);
 
 ```
 remember you can get your object value in the two ways:
@@ -157,190 +189,281 @@ person.firstName
 ```
 or
 ```javascript
-person[‘firstName’]
+person['firstName']
 ```
 
-### Node api 
+### Node api
 https://nodejs.org/api/index.html
 ```javascript
-var util = require(‘util’)
-var greeting = util.format(‘Hello, %s’, name);
-util.log(greeting)
+const util = require('util');
+const greeting = util.format('Hello, %s', name);
+util.log(greeting);
 
 ```
 
 ### Class example
 ```javascript
-‘use strict’
-
 class Person {
-	constructor(firstname, lastname){
-		this.firstname = firstname;
-		this.lastname = lastname;
-}
+  constructor(firstname, lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
+  }
 
-greet(){
-console.log(‘Hello ’+ this.firstname)
+  greet() {
+    console.log('Hello '+ this.firstname);
+  }
 }
-
-}
+const user = new Person('Tommy', 'Boby');
+console.log(user);
 ```
+
+### Declaring Objects
+```javascript
+const o1 = new Object();
+const o2 = {};
+const user = {name: 'tom', surrname: 'Kraj'};
+```
+
+You can add easily attributes:
+```javascript
+const user = {name: 'tom', surrname: 'Kraj'};
+user['favFruit'] = 'bannana';
+console.log(user);
+
+// result: { name: 'tom', surrname: 'Kraj', favFruit: 'bannana' }
+
+console.log(Object.keys(user).length);
+
+// result: 3
+```
+
+```javascript
+
+```
+### How to declare arrays:
+```javascript
+let arr= new Array();
+let arr2 = [];
+```
+
+### How to check array?
+```javascript
+const arr= new Array();
+const arr2 = [];
+console.log(Array.isArray(arr));
+
+// true
+```
+
+### Add a new element to an array:
+```javascript
+const arr2 = [];
+arr2.push('abc');
+console.log(arr2);
+
+// [ 'abc' ]
+```
+
+### Iteration
+```javascript
+const user = {name: 'tom', surname: 'moni'};
+
+for (key in user) {
+  console.log(key);
+}
+
+// name
+// surname
+```
+
+### Easier "for" loop
+```javascript
+const myArray = ['ala', 'ma', 'kota'];
+for (value of myArray ) {
+  console.log(value);
+}
+
+// ala
+// ma
+// kota
+
+```
+
+
 ### Callbacks
 
 callback is a function passed to some other function, which we assume will be invoked at some point. The function “call back” invoking the function you give it when it is done doing its work.
 
-```javascript
-function greet(callback) {
-	console.log(‘Hello’);
-	callback();
-}
-```
-if Im done with my greet function I invoke callback function
 
 take a look at an example:
 
 ```javascript
 function greet(callback) {
-	console.log(‘Hello’);
-	var data = {
-		name: ‘John’
-	};
-	callback(data);
+  console.log('Hello');
+  const data = {
+    name: 'John',
+  };
+  callback(data);
 }
 
-greet(function(data){
-	console.log(‘the callback was invoked’);
-	console.log(data);
+greet(function(data) {
+  console.log('the callback was invoked');
+  console.log(data);
 });
 ```
 the function I invoked will invoke function I will give.
 
-#### Callbacks alternative syntax
-
-```javascript
-fs.readFile('names.txt', function (err, content){
-	console.log(content);
-});
-
-// We will get the same output
-var callback = function (err, content){
-	console.log(content);
-};
-fs.readFile('names.txt', callback);
-});
- 
 ```
 
-### Files 
+### Files
 
-We can use synchronous convention: 
+We can use synchronous convention:
 
 ```javascript
-var fs = require(‘fs’);
+const fs = require('fs');
 
-//it reads binary data
-var greet = fs.readFileSync(__dirname+ ‘/greet.txt’, ‘utf-8’);
+// it reads binary data
+const greet = fs.readFileSync(__dirname+ '/hej.txt', 'utf-8');
 
 console.log(greet);
 ```
-Do you see differences with asynchronous example? What will happens if you call greet variable? You checked both examples and you know why you got undefined in the second one you can read next pages ;)
+Do you see differences with asynchronous example? What will happens if you call greet variable? If you have checked both examples and you know why you got undefined in the second one you can read next pages ;)
 
 ```javascript
-var fs = require('fs');
+const fs = require('fs');
 
-//it reads binary data
-var greet = fs.readFile('greet.txt','UTF-8', function(err, data){
-        console.log(data);
+const greet = fs.readFile('hej.txt', 'UTF-8', function(err, data) {
+  console.log(data);
 });
 
 console.log(greet);
-
+//undefined WHYYYYYYYYYYYY???
+// Repeat That
 ```
 
-Error-first callback: Callbacks take an error object as their first parameter
+**Error-first callback**: Callbacks take an error object as their first parameter
 null if no error, otherwise will contain an object defining the error. This is a standard so we know in what order to place our parameters for our callbacks.
 
+
 ### Asynchronous programming
-If you ddnt understand first example with file reading just relax and try to understand how asynchronous work.
-let's take a look on php code which can be equivalent to any your language like java or python. Whatever
+If you didnt understand first example with file reading just relax and try to understand how asynchronous work.
+let's take a look on php code which can be equivalent to any your well known language like java or python. Whatever ;)
 
-```php
-//find my file and give me a handler so I can start operations
-$file = fopen(‘test.txt’, ‘r’);
-//just see it like a buffer ;)
-$contents = fread($file, 100000);
-echo $contents;
-fclose($file)
-```
+setTimeout function is a function which has 2 arguments: a callback and a delay
+setTimeout(callback, dekay) = 2 argunent
 
-It spends a lot of time doing nothing executing all instructions step by step
-
-How could something works in Nodejs?
-
-```javascript
-var fs = require(‘fs’);
-
-var file;
-var buf = new Buffer(100000);
-
-fs.open(‘test.txt’, ‘r’, (err, handle) => {
-
-	file = handle;
-
-});
-
-fs.read(file, buf, 0, 100000, null, (err, length) =>{
-	console.log(buf.toString())
-fs.close(file, {} => {});
-});
-
-```
-
-Let see another example:
 ```javascript
 setTimeout( () => {
-	console.log(“I have done my work);
-}, 4000);
-console.log(“Im waiting that everything will finish”);
+  console.log('The last, or the first one?');
+},
+4000);
+
+setTimeout( () => {
+      console.log('Should I be the first??');
+   },
+   0);
+console.log('or me?');
 ```
 
 Before you execute code, ask yourself what you get from the console first?
-Easy because it was still something in the event queue
+Easy because it was still something in the event queue. Using method setTimeout you registred 2 callbacks:
+1 with console.log "I have done my work" and the second "Should I be the first??"
+
+hej.txt
+```
+Repeat That
+```
+
+```javascript
+const fs = require('fs');
+
+fs.readFile('hej.txt', {encoding: 'utf8'}, function(err, data ) {
+  if (err) {
+     console.log(err);
+  }
+
+  console.log(data);
+  fs.appendFile('hej.txt', data, (err) => {
+    if (err) {
+      if (err) {
+        console.log(err);
+        return;
+      }
+
+      console.log('OK');
+    }
+  });
+});
+```
+After that you should see:
+hej.txt
+```
+Repeat That
+Repeat That
+```
+another example:
+
+1. Lets prepare something like that to show how callback works. We get userObject
+
+```javascript
+var getUser = (id, callback) => {
+	var user = {
+		id: id,
+		name: 'Tom'
+		};
+		callback(user);
+	};
+
+getUser(31, (userObject) => {
+	console.log(userObject);
+});
+```
+2. and now lets add a real world case that we need to wait 5 sec for our user...
 
 
 ```javascript
-var fs = require(‘fs’)
+var getUser = (id, callback) => {
+	var user = {
+		id: id,
+		name: 'Tom'
+		};
+		setTimeout(
+		()=> {
+		callback(user);
+		}, 5000);
 
-var file;
 
-var buf = new Buffer(100000);
+	};
 
-fs.open(‘test.txt’, ‘r’, (err, handle)=> {
-	fs.read(handle, buf, 0, 100000, null, (err, length) => {
-		console.log(buf.toString(‘utf8’, 0, length));
-		fs.close(handle, () => {});
-	});
+getUser(31, (userObject) => {
+	console.log(userObject);
 });
 ```
 
-In that we emulate code from listing …
-
-1 it takes all parametrs and check everything
-2. It push this function to event stack
-	fs.read(handle, buf, 0, 100000, null, (err, length) => {
-		console.log(buf.toString(‘utf8’, 0, length));
-		fs.close(handle, () => {});
-	});
 
 ## Promise
 
 The promise as an abstracrion which tries to cover asynchronous programming and make your life easier. Imagine that  It promises you that you get a "gift" but you don't know when it happens and if it whenever happens but at the end you will get an answer if your promise was keept or not.
 
-there are 3 states of promises:
+There are 3 states of promises:
 
 -   **Pending**, when the final value is not available yet. This is the only state that may transition to one of the other two states.
 -   **Fulfilled**, when and if the final value becomes available. A _fulfillment value_ becomes permanently associated with the promise. This may be any value, including `undefined`.
 -   **Rejected**, if an error prevented the final value from being determined. A _rejection reason_ becomes permanently associated with the promise. This may be any value, including `undefined`, though it is generally an error
+First simple example
+
+```javascript
+var somePromise = new Promise( (resolve, reject) => {
+	resolve('Hey. It worked!');
+
+});
+```
+
+```javascript
+somePromise.then( (message) => {
+	console.log('Success:' + message);
+});
+```
 
 Lets take a look at the code:
 
@@ -350,7 +473,7 @@ promisedPresent
   .then(present => console.log('A nice gift!!', present))
   .catch(error => console.log('Sorry, no gift for you :(', error))
 ```
-Function get will be executed only if promise will be fullfilment. If not you will get an error from catch. What is interessting for us... you don't know when it happens. It can be in 1 sec or 5 minutes. 
+Function getPresent will be executed only if promise will be done with resolve state. If not you will get an error from catch. What is interessting for us... you don't know when it happens. It can be in 1 sec or 5 minutes.
 
 ```javascript
 function getPresent() {
@@ -361,8 +484,90 @@ function getPresent() {
   });
 }
 ```
+Let see an other example.
 
-You can join more promises:
+Imagine you meet a girl who you really like. But you dont know if she likes you. You want to invite her to a cinema on Valentine's day but you need to get first if she likes you. You would never buy first ticket before you ask her out. Please check your code in the console.
+
+You can treat setTimeout function like a time for thinking.
+
+```javascript
+const expectedAnswerfromMoni = 'Moni: I was waiting for that ages. Of course';
+const expectedAnswerfromMoni2 = 'Moni: With pleasure my beloved';
+const expectedAnswerKino = 'Kino lady: Yes we have 2 tickets for tonight movie: One Flew Over the Node.js Nest ';
+const expectedKiss = 'Moni: Kiss Kiss Kiss. Only for you my hero!';
+
+
+const yourAsynchronousTask = (expectedAnswer, reactionTime) => {
+  return new Promise((resolve, reject) => {
+    setTimeout((err) => {
+      if (err) {
+        reject(expectedAnswer);
+      }
+      resolve(expectedAnswer);
+    }, reactionTime); // 5 sekund
+  });
+};
+
+console.log('You: Hey Moni, do you want to go out with me?');
+
+yourAsynchronousTask(expectedAnswerfromMoni, 4000).then((result) => {
+  console.log(result);
+  console.log('You: Do you want to go with me to cinema tonight?');
+  return yourAsynchronousTask(expectedAnswerfromMoni2, 6000).then((result) => {
+    console.log(result);
+    console.log('You: I wasnt sure you want to go but I can call cinema right now');
+    return yourAsynchronousTask(expectedAnswerKino, 10000).then((result) => {
+      console.log(result);
+      console.log('You: Hey Moni, should I get something from you?');
+      return yourAsynchronousTask(expectedKiss, 1000).then((result) => {
+        console.log(result);
+      });
+    });
+  });
+}).catch((error)=>{
+  console.log(error);
+});
+
+console.log('But in the same time I can do other things!!!');
+console.log('I take a look at her eyes');
+console.log('Smile to her and so on');
+```
+But you can think... what happens when Moni say anytime no for your question! Our code wont execute after first "no" and you will get error message.
+
+An another simple example:
+
+In this time you can treat setTimeout function like any asynchronous call like calling database or any API
+
+```javascript
+const asyncAdd = (a, b) => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (typeof a ==='number' && typeof b ==='number') {
+        resolve(a+b);
+      } else {
+        reject('you can sum number and string!!');
+      }
+    }, 3000);
+  });
+};
+
+asyncAdd(5, 10).then((res) => {
+  console.log(res);
+  return asyncAdd(res, 10).then((newResult) => {
+    console.log(newResult);
+    return asyncAdd(newResult, '2').then((nextResult) => {
+      console.log;
+    });
+  });
+}).catch((error) => {
+  console.log(error);
+});
+```
+
+As you saw in the last example you can can join so many promises as you want.
+
+But you can chain so many then as you wish:
+
 ```javascript
 getPresent()
   .then(present => returnToTheShop(present))
@@ -370,63 +575,18 @@ getPresent()
   .then(iPhone => iPhone.openTypeOfWeb());
 ```
 
+To manage promises you can use an external module:
+https://github.com/axios/axios
 
-
-### Declaring Objects
-```javascript
-var o1 = new Object();
-var o2 = {}
-var user = {name: “tom”, password:”Kraj”}
-```
-
-You can add easily attributes:
-```javascript
-user[“fruit”] = “bananna”
-```
-
-```javascript
-Object.keys(user).length
-```
-### How to declare arrays:
-```javascript
-var arr= new Array();
-var arr2 = [];
-```
-
-### How to check array?
-```javascript
-Array.isArray(ar);
-```
-
-### Add a new element to an array:
-```javascript
-arr.push("abc")
-```
-
-### Iteration 
-```javascript
-var user = {name: “tom”, surname:”krajewski”};
-for (key in user){
-	console.log(key);
-}
-```
-
-### Easier "for" loop 
-```javascript
-var myArray = [“ala”,”ma”,”kota”];
-for (value of myArray ){
-	console.log(value);
-}
-```
 ### Error handling
-if you get use to syntax try catch… you need to forget it for NodeJS
+if you get use to syntax try catch… you need to forget it for NodeJS. Pattern in Node.js
 ```
 do_something (par1, par2, par3, (error, result) =>{
-	
+
 	if (error){
 	SOMETHING BAD HAPPEND HERE!
 	}
-		
+
 	else{
 	do your stuff
 	}
@@ -434,122 +594,15 @@ do_something (par1, par2, par3, (error, result) =>{
 });
 ```
 
-
-Pattern how to solve problem with this:
-
-
-```javascript
-
-var fs = require(‘fs’);
-
-function FileObject() {
-	this.filename = “”;
-
-this.file_exists = function (callback) {
-	console.log(this.filename, ‘r’, function (err, handle) {
-	if (err) {
-		console.log(“Can’t open” + this.filename);
-		callback(err);
-		return;
-	}
-
-	fs.close(handle);
-	callback(nulll, true);
-});
-}
-}
-
-var fo = new FileObject();
-
-fo.filename = “some not existed file”;
-
-fo.file_exists(err, exists) => {
-	if (err) {
-		console.log(“error opening file “ + JSON.stringify(err));
-		return;
-	}
-});
-
-```
-
-why we get undefined?!
-
-```javascript
-
-var fs = require(‘fs’);
-
-function FileObject() {
-	this.filename = “”;
-
-this.file_exists = function (callback) {
-var self = this;
-	console.log(self.filename, ‘r’, function (err, handle) {
-	if (err) {
-		console.log(“Can’t open” + self.filename);
-		callback(err);
-		return;
-	}
-
-	fs.close(handle);
-	callback(nulll, true);
-});
-}
-}
-
-var fo = new FileObject();
-
-fo.filename = “some not exited name”;
-
-fo.file_exists(err, exists) => {
-	if (err) {
-		console.log(“error opening file “ + JSON.stringify(err));
-		return;
-	}
-});
-
-```
-OR… with error functions
-
-```javascript
-
-var fs = require(‘fs’);
-
-function FileObject() {
-	this.filename = “”;
-
-this.file_exists = function (callback) {
-	console.log(this.filename, ‘r’, (err, handle)  => {
-	if (err) {
-		console.log(“Can’t open” + this.filename);
-		callback(err);
-		return;
-	}
-
-	fs.close(handle);
-	callback(nulll, true);
-});
-}
-}
-
-var fo = new FileObject();
-
-fo.filename = “some not exited name”;
-
-fo.file_exists(err, exists) => {
-	if (err) {
-		console.log(“error opening file “ + JSON.stringify(err));
-		return;
-	}
-});
-
-```
-Sources: 
+Sources:
 https://www.tutorialspoint.com/javascript/
-https://www.tutorialspoint.com/nodejs/ 
 
-## Node.js <div id='id-section2'/> 
 
-Node.js is a very powerful JavaScript-based framework/plattform built on Google Chrome's JavaScript V8 Engine. It is used to develop I/O intensive web applications like video streaming sites, single-page applications, and other web applications. Node.js is open source, completely free, and used by thousands of developers around the world. 
+## Node.js <div id='id-section2'/>
+
+Source: https://www.tutorialspoint.com/nodejs/
+
+Node.js is a very powerful JavaScript-based framework/plattform built on Google Chrome's JavaScript V8 Engine. It is used to develop I/O intensive web applications like video streaming sites, single-page applications, and other web applications. Node.js is open source, completely free, and used by thousands of developers around the world.
 
 ## Features of Node.js
 Following are some of the important features that make Node.js the first choice of software architects.
@@ -558,10 +611,10 @@ Following are some of the important features that make Node.js the first choice 
 - Very Fast − Being built on Google Chrome's V8 JavaScript Engine, Node.js library is very fast in code execution.
 - Single Threaded but Highly Scalable − Node.js uses a single threaded model with event looping. Event mechanism helps the server to respond in a non-blocking way and makes the server highly scalable as opposed to traditional servers which create limited threads to handle requests. Node.js uses a single threaded program and the same program can provide service to a much larger number of requests than traditional servers like Apache HTTP Server.
 - No Buffering − Node.js applications never buffer any data. These applications simply output the data in chunks.
-Why Node.js is so fast because it uses machine code which is low level code that your computer can run directly without needing an interpreter. 
+Why Node.js is so fast because it uses machine code which is low level code that your computer can run directly without needing an interpreter.
 
 ## Environment:
-If you use my VM nodejs is already installed. If you decided to use your own PC, please download latest version of Node.js https://nodejs.org/en/download/ 
+If you use my VM nodejs is already installed. If you decided to use your own PC, please download latest version of Node.js https://nodejs.org/en/download/
 
 ## First Steps
 
@@ -591,10 +644,9 @@ $ cd MyFirstNodeProject
 With npm init you create a new node.js project with package.json that defines all properties of the project. It walks you through the properties and asks you one by one how to specify them. You can choose the default settings by clicking enter.
 
 ```bash
-$ npm init 
+$ npm init
 ```
 ![npm init](https://lh3.googleusercontent.com/-tSviVQvQQvG9Dzb2LtAajfo0p7R2AxIztmRKUr3KSJN1haKM7rBPUYhu08URltlahXfNVPViOw)
-
 
 
 ### package.json
@@ -665,14 +717,14 @@ When the arrow function has only one parameter, the pair of parenthesis can be o
 
 The following example shows the arrow function basic usage:
 ```javascript
-var absValue = (number) => {  
+var absValue = (number) => {
   if (number < 0) {
     return -number;
   }
   return number;
 }
-absValue(-10); // => 10  
-absValue(5);   // => 5  
+absValue(-10); // => 10
+absValue(5);   // => 5
 ```
 
 absValue is an arrow function that calculates the absolute value of a number.
@@ -680,6 +732,12 @@ The function declared using a fat arrow has the following properties:
 The arrow function does not create its own execution context, but takes it lexically (contrary to function expression or function declaration, which create own this depending on invocation)
 The arrow function is anonymous: name is an empty string (contrary to function declaration which have a name)
 arguments object is not available in the arrow function (contrary to other declaration types that provide arguments object)
+
+but you can do something like this too!
+```javascript
+var squer= (number) => number*number;
+squer(10); // => 100
+```
 
 
 ## Module
@@ -738,6 +796,7 @@ const notes = require('./notes.js');
 console.log(notes.myNote);
 fs.appendFile('greetings.txt', 'Hello '+user);
 ```
+
 notes.js
 ```javascript
 module.exports.myNote = “Hello”;
@@ -767,41 +826,42 @@ notes.myNote();
 fs.appendFile('greetings.txt', 'Hello '+user);
 ```
 
-If you want to use variables as a module you cab just declare it in your variable in a JS script file:
+If you want to use variables as a module you can just declare it in your variable in a JS script file:
 
 ```javascript
-var greet = require(‘./greet);
+const helpers = require('./greet');
+
+console.log(helpers.greet);
+console.log(helpers.otherGreet);
+
 ```
 Exports module
 ```javascript
-var greet = “Hello from me!”
-module.exports = greet;
+const greet = 'Hello from me!';
+const otherGreet = 'Hello from other side';
+module.exports = {greet, otherGreet};
 ```
-
-
-
-
-
 
 ## Blocking Code vs non blocking code example
 
 
 The most weird thing with nodejs is to understand non blocking code. Please compare 2 examples:
 
-Create a text file named input.txt with the following content :
+Create a text file named hej.txt with the following content :
 
+**hej.txt**
 ```javascript
 This is an example from Tutorials Point is giving self learning content
 to teach the world in simple and easy way!!!!!
 ```
 Create a js file named blockingCode.js with the following code −
 ```javascript
-var fs = require("fs");
+const fs = require('fs');
 
-var data = fs.readFileSync('input.txt');
+const data = fs.readFileSync('hej.txt');
 
 console.log(data.toString());
-console.log("Program Ended");
+console.log('Program Ended');
 ```
 
 Now run the main.js to see the result −
@@ -815,13 +875,13 @@ It was a blocking code example.
 ## Non-Blocking Code Example
 Create nonBlockingCode.js
 ```javascript
-var fs = require("fs");
+const fs = require('fs');
 
-fs.readFile('input.txt', function (err, data) {
-   if (err) return console.error(err);
-   console.log(data.toString());
+fs.readFile('hej.txt', function(err, data) {
+  if (err) return console.error(err);
+  console.log(data.toString());
 });
-console.log("Program Ended");
+console.log('Program Ended');
 ```
 Now run the nonBlockingCode.js to see the result −
 
@@ -837,38 +897,572 @@ Thus, a blocking program executes very much in sequence. From the programming po
 
 character encoding: how characters are stored in binary. The numbers (or code points) are converted and stored in binary.
 
-## Buffer
-//take this string and convert it to binary data
-```javascript
-var buf = new Buffer(‘Hello’, ‘utf8’);
-console.log(buf);
-console.log(buf.toString());
-
-//adding data
-buf.write(“wor”);
-```
-
 ## DEBUGGER
-node debug [filename.js]
 
-Functions:
-set breakpoint([line_number])
-help all functions
+This solution is only for remote code like in
 
-or debugger in Atom 
+```
+node inspect-brk [filename.js]
+```
+Open for example WebStorm or any JS IDE supporting debug mode and connect to the debugger
 
+In Webstorm click in the buttom toolbar Run-->Edit Configurations
+Please choose from templates: "Attach to Node.js/Chrome"
+In the host add ip address of your docker-machine. In my case **localhost** or any ip address where your app is hosted
+
+![enter image description here](https://lh3.googleusercontent.com/tHxcCnHN6wc4Qg7FM-WqsBrnUpqaXrEpYsRyWY2_eBYy3N3OulflFn_eTtg_ikTJHSbdrFal3Ij7sr84XyTCXsed59h8yDthnsG5olrGG4t78vrcINhxuGEBs9p_62vWZlMstMaEAwh6oo8UEj60UAueE-Z3AJ427lJKXaNhYXVDIDn-XRa0svnhyeqoSfqvOZqZiJGmNVaKQ9JIWvAZsJvCyy2gwWAabP-7BvYCxu5oW4vCn9e6tFlCPxY8qPUhAU7LeJJH4d4wZ1T8kWpvf_G6lkOhheXjMgdaammQYd3PgcUtpCE8XbxaMq45rhknXX8Z-f-XgmKkoSjbTors2BhAq7vWWY2_Nwlwks18Mfvn2nyEUe1cTHqEnoUj3oQCJTeuMH9cPzpwyE67GGM0Pl1QZpnlIZv__HWMPa9O00rwITVflVUr09DcECKaNARjNW8OVM8SMoe9A-QBn49YTUObZ_MSPu1BX_xRpW9GdJ-BzqztrbaMQR9hAMbGxGP6B_n6iD0TWC92QkjeV0zqkVFBX4YKzoOWQxSV15agUYKPCFM2KpG_rJ1YtnWPCNOMR0PjJUzzdz44bdu0vh_60N78ZP1OV6j8BkXymOrdBvtTxv_X7uKtrtpJF1VgcbZzzPE9ahnGTlYRvtUAgJNw0zfNSkoxcvddE8MolHNTYk7b1Hq0BDk2G4bQvfOgPFhm_oGIEavzkz7uGR3hlA=w1346-h841-no)
+and click apply and **+** button in the left button corner
+
+![enter image description here](https://lh3.googleusercontent.com/Bss0hviB3jsPljLWRodBulNb3aOZE0X3SXwf1-Bf5K7VgeQOCh1xwi3yVPmp3_IMKrDIKZgu27_zH3orh3Vlwn-QexQFPzlcamP-zihZpuleaKa-MFy4Or0285VnWtkc1M_9Xj9Xbg6AJY4gnA1vEHPAi8HobQT8X2l13P796INCRhjd7hqNs442qsgJKXwjkLCX1Y04__FRHOE3ywH26rdg8u3-KVefsfAQgE5hcDRWsq5sq-TLM7nSaz0-AsK9_3uNiyHlT_mIsGMSYcqVEO1usyIAhUJe79DEPGHjUM0ONqorHKzaw9L1oXMDgxCkoLVKxnGAj_Ccu-X6mxRxj8cU0ExTHoBQtD5yZ2lVWP-N4R4RuUeLJ_Wo4ZPg0AxU3zP_A5PXHIUqTBptF1d199URQOV7ps68KbeiRhvUffWLwyzcaId--yLsDXn9ID1ZEUSSHiH8W8ztxZlMKx1ENjTTcIKPED8j911t_o-vEiiycjjIU_nq6bkHywFy3oUqjcsb98Hw2LwEIBo7Hb2HyXAwNQbhgXlpzIvcC_6qbogGVr3gxUSf8itbZPP5wffnGJ9T8huAZw-MdVbIPhd_c6A47wft9uu_RCn_Ya1Anrd99fEfkgUH6LLbpfDiDYdEYX31F6j2W5oEGCptzva-0DO24S2YIvwNrsoGa62yy8LfNd5gZ0ebDZMxZ-nrFW1doFTQoyLLprb2mrFtNw=w1145-h299-no)
+
+Now if you click Run-->You can run your defined debug process
+
+You can add your first breakpoint clicking to a choosen line and start conversation from DialogFlow.
+You can see your debugged code in the WebStorm console.
+
+![enter image description here](https://lh3.googleusercontent.com/_RGQbo9Hw3Bk53SgNFH1lZLYbi5eK8TVmbhsf9Le6bQZmJ7AYCCOFPsHgzvzyFWcxLlghsqm0tmvEp2aiakwebuLx-SEW0onBDdr9w96--Fdd5C9Ja-Qx3tu1eLd6REIFdm7robfx2PLEa4jOyyttmlfxyPMx30D2h5EAAt4APUu0rYMKcHMIxNz171Wrqy4iMcoPpSMV-8PuqEwklViBkVZvi0xrsDyyxnFQlghBYqwfyg7go57TwIPTfbxnPYJDJxivy_XHOu-x2HPl1OwgS0kIBPVF0e8HSflw28PqKxVl3YbFdhe3gp8OOdWfE-HQaul8CaJjH77dJ8eliucTBHJIqnyLHuAjemqcG_JTLNAJeKlLng4OuJLRZIPTJbK2h0BYWeOWk7mAnlqSoi-cTcWrODVmReRUAqmNYM8Lk-3zJSDtYi1gHOXaWRTzyV99y0Pfb4ZSsJ9nvAke4evQc94cIaUpdswWCj6BvAi_U0IpEzMbtgw24fvIh72k4nA_4HM_cYAfheXgzjCEJTk9eLYwRA0TwvcuUBCWLGV8J_0pzNN0yMmL_1S3ToTTPKKfMH82nNS-IHD9b92tWXnDpVcrj4R7CNs2Jq4mAk_MTZtQ8wxeDhbjj6woFj0fQI_TYFfn_t79JJA-3d9ulqyM9WjHmYIrXWgNb5oKuKuzKLSqNOOnXi64PU4YQsuvfoXBu_04c2eOriqP7bsCA=w1771-h679-no)
 
 
 Sources:
-https://www.tutorialspoint.com/nodejs/ 
+https://www.tutorialspoint.com/nodejs/
+
+<div id='id-section3'/>
+
+## Google Assistant tutorial
+
+We are using solution which is based on node.js express app.  The reason? we can start and test our app locally very fast.
+
+Please visit our github repository to follow all code explanations:
+https://github.com/falent/googleHomeAssistantExpressNodeJS
+
+### Creating start.js file
+firstly we create file start.js
+
+This is a normal express app. It starts a server which is waiting for any call to port 5000. For us important is method express().use which we add 2 parametrs bodyParser.json() and app. BodyParser.json ensure us that every call from outside will be parsed to Json object. The second "app" parametr tells to use google solution (based on DialogFlow) to treat any call from outside.
+
+```JavaScript
+'use strict';
+const app = require('./app');
+
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const port = process.env.PORT || 5000;
+express().use(bodyParser.json(), app).listen(port);
+```
+
+We imported app object. What is that?
+
+### Creating app.js file
+
+Our code uses the Actions on Google Node.js client library to respond to the HTTP requests that the Assistant sends first to Express app and than to our webhook:
+
+```JavaScript
+const {dialogflow} = require('actions-on-google');
+```
+The library allows you to create a DialogflowApp object, which acts as a wrapper for the Dialogflow API.
+
+```JavaScript
+const app = dialogflow({debug: false});
+```
+We need to add a function which will be triggered by the name of intent. In this case we add function app.intent with 2 parametrs. 'welcomeIntent' is a name of our intent and 'conv' is a sent object from google assistant
+```JavaScript
+app.intent('welcomeIntent', (conv) => {
+    conv.ask('Hi, What is your name?');
+});
+```
+For people who ever programmed node.js webapp with express.
+Please compare the example above with express app example:
+```JavaScript
+app.get('/welcomePage', (req, res) => {
+    res.send('Hi, What is your name?');
+});
+```
+If you had any expirience with express app you can treat conv parametr as res parametr in dialogFlow app.
+
+If you print to the console the conv object you can see a long JSON request:
+
+```JSON
+{
+  "responses": [],
+  "expectUserResponse": true,
+  "digested": false,
+  "noInputs": [],
+  "speechBiasing": [],
+  "_responded": false,
+  "request": {
+    "isInSandbox": true,
+    "surface": {
+      "capabilities": [
+        {
+          "name": "actions.capability.AUDIO_OUTPUT"
+        },
+        {
+          "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+        },
+        {
+          "name": "actions.capability.WEB_BROWSER"
+        },
+        {
+          "name": "actions.capability.SCREEN_OUTPUT"
+        }
+      ]
+    },
+    "requestType": "SIMULATOR",
+    "inputs": [
+      {
+        "rawInputs": [
+          {
+            "query": "Talk to my company celero LTD",
+            "inputType": "KEYBOARD"
+          }
+        ],
+        "intent": "actions.intent.MAIN"
+      }
+    ],
+    "user": {
+      "userStorage": "{\"data\":{}}",
+      "lastSeen": "2018-12-09T16:31:52Z",
+      "locale": "en-US",
+      "userId": "ABwppHGscAZl8ESw0TOWpQy3BbypDvPomBN7Bjlz0lm3ICUVdnsON6KwbFXST_fw2Z-hAR-f-u5o"
+    },
+    "conversation": {
+      "conversationId": "ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX",
+      "type": "NEW"
+    },
+    "availableSurfaces": [
+      {
+        "capabilities": [
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          },
+          {
+            "name": "actions.capability.WEB_BROWSER"
+          },
+          {
+            "name": "actions.capability.SCREEN_OUTPUT"
+          }
+        ]
+      }
+    ]
+  },
+  "headers": {
+    "accept": "text/plain, */*",
+    "content-type": "application/json; charset=UTF-8",
+    "accept-charset": "big5, big5-hkscs, cesu-8, euc-jp, euc-kr, gb18030, gb2312, gbk, ibm-thai, ibm00858, ibm01140, ibm01141, ibm01142, ibm01143, ibm01144, ibm01145, ibm01146, ibm01147, ibm01148, ibm01149, ibm037, ibm1026, ibm1047, ibm273, ibm277, ibm278, ibm280, ibm284, ibm285, ibm290, ibm297, ibm420, ibm424, ibm437, ibm500, ibm775, ibm850, ibm852, ibm855, ibm857, ibm860, ibm861, ibm862, ibm863, ibm864, ibm865, ibm866, ibm868, ibm869, ibm870, ibm871, ibm918, iso-2022-cn, iso-2022-jp, iso-2022-jp-2, iso-2022-kr, iso-8859-1, iso-8859-13, iso-8859-15, iso-8859-2, iso-8859-3, iso-8859-4, iso-8859-5, iso-8859-6, iso-8859-7, iso-8859-8, iso-8859-9, jis_x0201, jis_x0212-1990, koi8-r, koi8-u, shift_jis, tis-620, us-ascii, utf-16, utf-16be, utf-16le, utf-32, utf-32be, utf-32le, utf-8, windows-1250, windows-1251, windows-1252, windows-1253, windows-1254, windows-1255, windows-1256, windows-1257, windows-1258, windows-31j, x-big5-hkscs-2001, x-big5-solaris, x-compound_text, x-euc-jp-linux, x-euc-tw, x-eucjp-open, x-ibm1006, x-ibm1025, x-ibm1046, x-ibm1097, x-ibm1098, x-ibm1112, x-ibm1122, x-ibm1123, x-ibm1124, x-ibm1166, x-ibm1364, x-ibm1381, x-ibm1383, x-ibm300, x-ibm33722, x-ibm737, x-ibm833, x-ibm834, x-ibm856, x-ibm874, x-ibm875, x-ibm921, x-ibm922, x-ibm930, x-ibm933, x-ibm935, x-ibm937, x-ibm939, x-ibm942, x-ibm942c, x-ibm943, x-ibm943c, x-ibm948, x-ibm949, x-ibm949c, x-ibm950, x-ibm964, x-ibm970, x-iscii91, x-iso-2022-cn-cns, x-iso-2022-cn-gb, x-iso-8859-11, x-jis0208, x-jisautodetect, x-johab, x-macarabic, x-maccentraleurope, x-maccroatian, x-maccyrillic, x-macdingbat, x-macgreek, x-machebrew, x-maciceland, x-macroman, x-macromania, x-macsymbol, x-macthai, x-macturkish, x-macukraine, x-ms932_0213, x-ms950-hkscs, x-ms950-hkscs-xp, x-mswin-936, x-pck, x-sjis_0213, x-utf-16le-bom, x-utf-32be-bom, x-utf-32le-bom, x-windows-50220, x-windows-50221, x-windows-874, x-windows-949, x-windows-950, x-windows-iso2022jp",
+    "content-length": "3040",
+    "host": "e5731f27.ngrok.io",
+    "user-agent": "Apache-HttpClient/4.5.6 (Java/1.8.0_181)",
+    "accept-encoding": "gzip,deflate",
+    "x-forwarded-proto": "https",
+    "x-forwarded-for": "35.238.119.89"
+  },
+  "_init": {},
+  "sandbox": true,
+  "input": {
+    "raw": "Talk to my company celero LTD",
+    "type": "KEYBOARD"
+  },
+  "surface": {
+    "capabilities": {
+      "list": [
+        {
+          "name": "actions.capability.AUDIO_OUTPUT"
+        },
+        {
+          "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+        },
+        {
+          "name": "actions.capability.WEB_BROWSER"
+        },
+        {
+          "name": "actions.capability.SCREEN_OUTPUT"
+        }
+      ]
+    }
+  },
+  "available": {
+    "surfaces": {
+      "list": [
+        {
+          "capabilities": {
+            "list": [
+              {
+                "name": "actions.capability.AUDIO_OUTPUT"
+              },
+              {
+                "name": "actions.capability.WEB_BROWSER"
+              },
+              {
+                "name": "actions.capability.SCREEN_OUTPUT"
+              }
+            ]
+          }
+        }
+      ],
+      "capabilities": {
+        "surfaces": [
+          {
+            "capabilities": {
+              "list": [
+                {
+                  "name": "actions.capability.AUDIO_OUTPUT"
+                },
+                {
+                  "name": "actions.capability.WEB_BROWSER"
+                },
+                {
+                  "name": "actions.capability.SCREEN_OUTPUT"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  },
+  "user": {
+    "raw": {
+      "userStorage": "{\"data\":{}}",
+      "lastSeen": "2018-12-09T16:31:52Z",
+      "locale": "en-US",
+      "userId": "ABwppHGscAZl8ESw0TOWpQy3BbypDvPomBN7Bjlz0lm3ICUVdnsON6KwbFXST_fw2Z-hAR-f-u5o"
+    },
+    "storage": {},
+    "_id": "ABwppHGscAZl8ESw0TOWpQy3BbypDvPomBN7Bjlz0lm3ICUVdnsON6KwbFXST_fw2Z-hAR-f-u5o",
+    "locale": "en-US",
+    "permissions": [],
+    "last": {
+      "seen": "2018-12-09T16:31:52.000Z"
+    },
+    "name": {},
+    "entitlements": [],
+    "access": {},
+    "profile": {}
+  },
+  "arguments": {
+    "parsed": {
+      "input": {},
+      "list": []
+    },
+    "status": {
+      "input": {},
+      "list": []
+    },
+    "raw": {
+      "list": [],
+      "input": {}
+    }
+  },
+  "device": {},
+  "id": "ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX",
+  "type": "NEW",
+  "screen": true,
+  "body": {
+    "responseId": "4814d39d-076e-47cc-a164-ed2868e7797d",
+    "queryResult": {
+      "queryText": "GOOGLE_ASSISTANT_WELCOME",
+      "parameters": {},
+      "allRequiredParamsPresent": true,
+      "fulfillmentMessages": [
+        {
+          "text": {
+            "text": [
+              ""
+            ]
+          }
+        }
+      ],
+      "outputContexts": [
+        {
+          "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/google_assistant_welcome"
+        },
+        {
+          "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_screen_output"
+        },
+        {
+          "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_audio_output"
+        },
+        {
+          "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/google_assistant_input_type_keyboard"
+        },
+        {
+          "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_web_browser"
+        },
+        {
+          "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_media_response_audio"
+        }
+      ],
+      "intent": {
+        "name": "projects/fir-5c548/agent/intents/00693871-1f4c-484e-b658-a54b86e7df92",
+        "displayName": "welcomeIntent"
+      },
+      "intentDetectionConfidence": 1,
+      "languageCode": "en-us"
+    },
+    "originalDetectIntentRequest": {
+      "source": "google",
+      "version": "2",
+      "payload": {
+        "isInSandbox": true,
+        "surface": {
+          "capabilities": [
+            {
+              "name": "actions.capability.AUDIO_OUTPUT"
+            },
+            {
+              "name": "actions.capability.MEDIA_RESPONSE_AUDIO"
+            },
+            {
+              "name": "actions.capability.WEB_BROWSER"
+            },
+            {
+              "name": "actions.capability.SCREEN_OUTPUT"
+            }
+          ]
+        },
+        "requestType": "SIMULATOR",
+        "inputs": [
+          {
+            "rawInputs": [
+              {
+                "query": "Talk to my company celero LTD",
+                "inputType": "KEYBOARD"
+              }
+            ],
+            "intent": "actions.intent.MAIN"
+          }
+        ],
+        "user": {
+          "userStorage": "{\"data\":{}}",
+          "lastSeen": "2018-12-09T16:31:52Z",
+          "locale": "en-US",
+          "userId": "ABwppHGscAZl8ESw0TOWpQy3BbypDvPomBN7Bjlz0lm3ICUVdnsON6KwbFXST_fw2Z-hAR-f-u5o"
+        },
+        "conversation": {
+          "conversationId": "ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX",
+          "type": "NEW"
+        },
+        "availableSurfaces": [
+          {
+            "capabilities": [
+              {
+                "name": "actions.capability.AUDIO_OUTPUT"
+              },
+              {
+                "name": "actions.capability.WEB_BROWSER"
+              },
+              {
+                "name": "actions.capability.SCREEN_OUTPUT"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "session": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX"
+  },
+  "version": 2,
+  "action": "",
+  "intent": "welcomeIntent",
+  "parameters": {},
+  "contexts": {
+    "_session": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX",
+    "input": {
+      "google_assistant_welcome": {
+        "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/google_assistant_welcome"
+      },
+      "actions_capability_screen_output": {
+        "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_screen_output"
+      },
+      "actions_capability_audio_output": {
+        "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_audio_output"
+      },
+      "google_assistant_input_type_keyboard": {
+        "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/google_assistant_input_type_keyboard"
+      },
+      "actions_capability_web_browser": {
+        "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_web_browser"
+      },
+      "actions_capability_media_response_audio": {
+        "name": "projects/fir-5c548/agent/sessions/ABwppHGmrysp8kg2DTPeaa8wLUOyZfEZWnYVMMBlECUfjewwxFRMxm-Q7ON1BsNW417QlzFlghEX/contexts/actions_capability_media_response_audio"
+      }
+    },
+    "output": {}
+  },
+  "incoming": {
+    "parsed": [
+      ""
+    ]
+  },
+  "query": "GOOGLE_ASSISTANT_WELCOME",
+  "data": {}
+}
+```
+
+Your whole simple app look like below.
+
+```JavaScript
+const {dialogflow} = require('actions-on-google');
+const app = dialogflow({debug: false});
+
+app.intent('welcomeIntent', (conv) => {
+    conv.ask('Hi, What is your name?');
+});
+
+module.exports = app;
+
+```
+
+Of course we could define n app.intent functions in one app.js file but it is better to add app.intent functions to each separate file. For that purpose we need to register our intents functions
+
+Lets defined first a getNameIntent. We will expect that a user tell us a name and Google Assistant (GA) will say hello with this name.
+We need to define a path where we put our intent and create that file.
+
+```JavaScript
+const welcomeIntent = require('./intents/welcomeIntent.js')
+```
+In the app.js file we need to create a for loop which is responding for register all intents because we want to have all defined intents in the separate files.
+
+In a function addIntents we define n parameters (... args)
+```JavaScript
+
+/** Adds Intent-name & callback key value pairs to app */
+function addIntents(...args) {
+  for (let i = 0; i < args.length; i++) {
+    for (const key in args[i]) {
+      if (args[i].hasOwnProperty(key)) {
+        app.intent(key, args[i][key]);
+      }
+    }
+  }
+}
+```
+It checks if that function is defined in a propter style like 'nameOfIntent': function (conv). It checks if function which is object has own property. If yes register intent in the way: app.intetnt('nameOfIntent', function(conv) it is ok but in our code we try to use an arrow functions. Please keep in mind those 2 examples are equivalent:
+```JavaScript
+module.exports = {
+  'welcomeIntent': function(conv) {
+    conv.ask('Hi, what is your name?');
+  },
+};
+```
+and arrowFunction:
+```JavaScript
+module.exports = {
+  'welcomeIntent': (conv) => {
+    conv.ask('Hi, what is your name?');
+  },
+};
+```
+We can respond to user with conv.ask method.  In that case GA will wait for an answer when it says "Hi, what is your name".
+
+In the end we need to register this function to our intents in our app.js file.
+
+```JavaScript
+addIntents(
+    welcomeIntent
+);
+```
+In that case our welcomeIntent was exported to the separated file. You can be sure now that your code would be easier to maintain.
+
+Imagine you want to add a new Intent, a nameIntent that you get a user name. You need to create a new variable and add it to addIntents functions.
+
+In the nameIntent.js file
+```JavaScript
+module.exports = {
+  'nameIntent': (conv, parameter) => {
+    const myName = conv.parameter['given-name'];
+    conv.close('Hi '+myName);
+  },
+};
+```
+
+In the 'nameIntent' the callback receives two important arguments:
+
+-   A [`Dialogflow Conv`](https://actions-on-google.github.io/actions-on-google-nodejs/classes/dialogflow.dialogflowconversation.html) object. This is a client library abstraction of the state of the dialog, and includes properties which represent values of the incoming request to our webhook, such as the current active Dialogflow contexts, the surface capabilities of the user device, etc.
+-   A Dialogflow [`Parameters`](https://actions-on-google.github.io/actions-on-google-nodejs/interfaces/dialogflow.parameters.html) object. This is a JavaScript Object representation of the parameter values collected in the related intent. If you configured your entity in Dialogflow in the nameIntent your GA should say Hi, [name] and close conversation.
 
 
-## Google Assistant tutorial <div id='id-section1'/> 
 
 
+## How to add responses to your conversations
 
-`conv.user.storage` object instead for storing the user's name between conversations. If the user previously granted your Action permission to access their name, it will appear in the greeting message.
-**Key term:**
+As mentioned you can add responses in 2 ways to your user.
+ a) In this case Google Assistant waits for your next reaction
+```javascript
+    conv.ask(
+        'Google Asistant waits for you next question/statment'
+    );
+```
+b) Google Assistant closes conversation and your action too.
 
--   **No-input event:** Special event that Actions on Google sends to Dialogflow whenever a user doesn't provide input after a developer-defined number of reprompts. In Actions on Google, this is represented by the `actions.intent.NO_INPUT` intent. If you are using Dialogflow, this is represented as an `actions_intent_NO_INPUT` event.
+```javascript
+    conv.close(
+        'Im closing your action and I dont want to talk with you any more now!'
+    );
+```
+
+Of course we could add some more interactions with our user. Imagine we would like to deliver some clickable link or images to your user phone..
+
+
+## Responses in a different way
+
+We would like to put some ssml tags (some instruction for google assistant that it follows reading our text).
+
+First we need to import some more features from DialogFlow library:
+``` javascript
+
+const {
+  dialogflow,
+  SimpleResponse,
+  BasicCard,
+  Suggestions
+
+} = require('actions-on-google');
+```
+
+You can provide that user can see on its smartphone some other things.
+
+``` javascript
+
+app.intent('welcomeIntent', (conv) => {
+
+    conv.ask(new SimpleResponse({
+        text: 'Hello in my company app. My user will see that in its phone',
+        speech: '<speak> Hello <break time="3s"/> in my app </speak>',
+    }));
+
+    conv.ask(new BasicCard({
+        title: 'This is my wonderfull company app',
+        image: new Image({
+            url: 'http://www.thebluediamondgallery.com/handwriting/images/example.jpg',
+            alt: 'Really?',
+        }),
+        buttons: new Button({
+            title: 'My company channel',
+            url: 'https://www.youtube.com/user/OPITZCONSULTING',
+        }),
+    }));
+});
+```
+Output:
+
+![enter image description here](https://lh3.googleusercontent.com/AHXGBELsEDQUPOETvfC_6lBjpVqQfZamJu0Z58-tOfPyhVaUv3gSEs8KRoCb5_zG6PLup1akhHQZ)
+
+  ### Sessions variable
+
+You can save some session values in conv object
+`conv.data.userName `
+
+```JavaScript
+module.exports = {
+  'nameIntent': (conv, parameter) => {
+    const myName = conv.parameter['given-name'];
+    conv.data.userName = myName;
+    conv.close(`Hi ${myName}`);
+  },
+};
+```
+this attribute will be stored as a session variable. You can get access to it any time you want in other intents.
+
 
