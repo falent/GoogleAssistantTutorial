@@ -146,6 +146,32 @@ sayHello(“Tomasz”)
 
 ```
 
+### Destructing
+
+```javascript
+const myJson =  {
+  id: 34243,
+  title: "myTitle",
+  published: 1999
+  genreIds: [9,33,3,32,44]  
+};
+
+const {title, id, published} = myJson;
+console.log(title);
+// "myTitle"
+const [,second] = myJson.genreIds;
+console.log(second);
+// 33
+```
+
+### 
+
+
+
+
+
+
+
 ### Anonymous function
 
 ```javascript
@@ -192,7 +218,14 @@ or
 person['firstName']
 ```
 
+
+
+person['firstName']
+
+
+
 ### Node api
+
 https://nodejs.org/api/index.html
 ```javascript
 const util = require('util');
@@ -217,7 +250,63 @@ const user = new Person('Tommy', 'Boby');
 console.log(user);
 ```
 
+
+
+### Getters and Setters
+
+```javascript
+class Person {
+  constructor(firstname, lastname) {
+    this._firstname = firstname;
+    this._lastname = lastname;
+  }
+
+  greet() {
+    console.log('Hello '+ this.firstname);
+  }
+  get firstname() {
+      console.log("Getting name")
+      return this._firstname;
+  }  
+    
+  set firstname(newName){
+      this._firstname = newName;
+  }
+    
+}
+const user = new Person('Tommy', 'Boby');
+console.log(user);
+user.firstname = "Frank";
+console.log(user.firstname);
+```
+
+### Inheritance
+
+```javascript
+class Teacher extends Person {
+  constructor(teachingSkills) {
+	// super needs to be called first
+    super();
+    this._teachingSkills = teachingSkills;
+  }
+  // this set will run first and once for Teacher  
+  set firstname(newName){
+    console.log('It runs for Teacher')  
+    this._firstname = newName;
+  }
+    
+}
+const user = new Teacher('Tommy', 'Boby',5);
+const user1 = new Person('Arne', 'Resing');
+console.log(user);
+user.firstname = "Frank";
+console.log(user.firstname);
+```
+
+
+
 ### Declaring Objects
+
 ```javascript
 const o1 = new Object();
 const o2 = {};
@@ -237,9 +326,6 @@ console.log(Object.keys(user).length);
 // result: 3
 ```
 
-```javascript
-
-```
 ### How to declare arrays:
 ```javascript
 let arr= new Array();
@@ -268,7 +354,7 @@ console.log(arr2);
 ```javascript
 const user = {name: 'tom', surname: 'moni'};
 
-for (key in user) {
+for (let key in user) {
   console.log(key);
 }
 
@@ -276,7 +362,22 @@ for (key in user) {
 // surname
 ```
 
+### "for" loop
+
+```javascript
+const myArray = ['ala', 'ma', 'kota'];
+for (let i=0; i<myArray.length; i++ ) {
+  console.log(myArray[i]);
+}
+
+// ala
+// ma
+// kota
+
+```
+
 ### Easier "for" loop
+
 ```javascript
 const myArray = ['ala', 'ma', 'kota'];
 for (value of myArray ) {
@@ -289,13 +390,93 @@ for (value of myArray ) {
 
 ```
 
+### for each
+
+```javascript
+const myArray = ['ala', 'ma', 'kota'];
+myArray.forEach((value, i) => {
+    console.log('Value: '+value);
+    console.log('Index'+i);
+})
+
+```
+
+### Array.Of
+
+```javascript
+const myArray = Array.of(8, [44,3,2,2], {sport: 'value'})
+
+```
+
+### Array.fill
+
+```javascript
+const myArray = [1,2,3,4,5]
+myArray.fill("a", -2)
+// [1,2,3,'a','a']
+```
+
+
+
+### loop for objects
+
+```javascript
+const user = {name: 'tom', surrname: 'Kraj'};
+for (let value in user ) {
+  console.log(value);
+}
+
+```
+
+
+
+### Primitives
+
+string, number, boolean, null, undefined, symbol
+
+We copy the values
+
+BUT Objects are stored by references!!
+
+```javascript
+const user = {name: 'tom', surrname: 'Kraj'};
+
+let newUser = user;
+
+newUser.age = 19;
+
+console.log(user);
+//{name: 'tom', surrname: 'Kraj', age: 18};
+console.log(newUser);
+//{name: 'tom', surrname: 'Kraj', age: 18};
+```
+
+
 
 ### Callbacks
 
 callback is a function passed to some other function, which we assume will be invoked at some point. The function “call back” invoking the function you give it when it is done doing its work.
 
+the function I invoked will invoke function I will give
 
-take a look at an example:
+```javascript
+function printUpper(myString) {
+  console.log(myString.toUpperCase());
+}
+function printNumber(myNumber) {
+  console.log(myNumber);
+}
+function run(callback, input) {
+    callback(input);
+    
+}
+
+run(printUpper, 'Hellooooo')
+```
+
+
+
+another example:
 
 ```javascript
 function greet(callback) {
@@ -319,7 +500,7 @@ the function I invoked will invoke function I will give.
 
 We can use synchronous convention:
 
-```javascript
+​```javascript
 const fs = require('fs');
 
 // it reads binary data
@@ -443,7 +624,7 @@ getUser(31, (userObject) => {
 
 ## Promise
 
-The promise as an abstracrion which tries to cover asynchronous programming and make your life easier. Imagine that  It promises you that you get a "gift" but you don't know when it happens and if it whenever happens but at the end you will get an answer if your promise was keept or not.
+The promise as an abstraction which tries to cover asynchronous programming and make your life easier. Imagine that  It promises you that you get a "gift" but you don't know when it happens and if it whenever happens but at the end you will get an answer if your promise was kept or not.
 
 There are 3 states of promises:
 
@@ -451,6 +632,8 @@ There are 3 states of promises:
 -   **Fulfilled**, when and if the final value becomes available. A _fulfillment value_ becomes permanently associated with the promise. This may be any value, including `undefined`.
 -   **Rejected**, if an error prevented the final value from being determined. A _rejection reason_ becomes permanently associated with the promise. This may be any value, including `undefined`, though it is generally an error
 First simple example
+
+Promise is a constructor with 2 callbacks. Resolve and reject but you can cal them as you wish
 
 ```javascript
 var somePromise = new Promise( (resolve, reject) => {
@@ -927,7 +1110,6 @@ Sources:
 https://www.tutorialspoint.com/nodejs/
 
 <div id='id-section3'/>
-
 ## Google Assistant tutorial
 
 We are using solution which is based on node.js express app.  The reason? we can start and test our app locally very fast.
@@ -1465,4 +1647,28 @@ module.exports = {
 ```
 this attribute will be stored as a session variable. You can get access to it any time you want in other intents.
 
+
+
+### Interesting examples in JS
+
+How to execute ?
+`a(2)(3) `
+
+```JavaScript
+function a(x){
+    console.log(x);
+    return function(y){
+        console.log(x+y);
+    }
+}
+```
+
+`b(2).run `
+
+```JavaScript
+function b(x){
+    console.log(x);
+    return {run: 'Hallloooo'}
+}
+```
 
