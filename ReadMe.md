@@ -531,7 +531,7 @@ If you didnt understand first example with file reading just relax and try to un
 let's take a look on php code which can be equivalent to any your well known language like java or python. Whatever ;)
 
 setTimeout function is a function which has 2 arguments: a callback and a delay
-setTimeout(callback, dekay) = 2 argunent
+setTimeout(callback, delay) = 2 argument
 
 ```javascript
 setTimeout( () => {
@@ -578,11 +578,35 @@ fs.readFile('hej.txt', {encoding: 'utf8'}, function(err, data ) {
 ```
 After that you should see:
 hej.txt
+
 ```
 Repeat That
 Repeat That
 ```
 another example:
+
+```javascript
+setTimeout(
+
+    () =>
+    console.log("Line 1, 0 timeout"), 0);
+
+console.log("line 2");
+setTimeout(
+
+    () =>
+    console.log("Line 3, 100 timeout"), 100);
+
+for(let i = 0 i<1000; i++){
+    if(i==1000) console.log("Done");
+}
+```
+
+
+
+another example:
+
+
 
 1. Lets prepare something like that to show how callback works. We get userObject
 
@@ -761,7 +785,50 @@ getPresent()
 To manage promises you can use an external module:
 https://github.com/axios/axios
 
+
+
+## Async
+
+requires at least node 7.6
+
+if you write "async" before function you just telling that this function depends on other asynchronous function. 
+
+## Generators 
+
+   you can compare generators to analog camera. If you take a picture the next is prepared
+
+```javascript
+function* aGenerator(){
+  console.log('I ran once')
+  yield 1; // Pause here and wait 
+  console.log('I ran once')  
+}
+const gen = aGenerator();
+gen.next();
+gen.next();
+gen.next(); 
+```
+
+##  ES7
+
+1.   Exponentiation:
+
+```javascript
+const x = 3*3*3;
+const x3 = 3**3;
+```
+
+2. Includes: returns true or false
+
+```javascript
+const arr = [0,2,3,4,555]
+console.log(arr.includes(2))
+```
+
+
+
 ### Error handling
+
 if you get use to syntax try catch… you need to forget it for NodeJS. Pattern in Node.js
 ```
 do_something (par1, par2, par3, (error, result) =>{
