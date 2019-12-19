@@ -115,7 +115,19 @@ console.log('The lenght of this array is ', fruits.length);
 console.log('This array: ' + fruits);
 
 ```
+### ParseInt() and ParseFloat()
+
+```javascript
+parseInt("100") //  100
+parseInt("3.14") // 3
+parseFloat("3.14") // 3.14
+
+```
+
+
+
 ### Declaring function
+
 ```javascript
 function sayHello(name) {
   cosole.log('Hello '+name);
@@ -1739,3 +1751,137 @@ function b(x){
 }
 ```
 
+
+
+## Fronted
+
+examples from tutorial: https://www.khanacademy.org/computing/computer-programming/html-css-js
+
+DOM (Document Object Model)
+
+to manipulating DOM we are using object 
+
+```
+document
+```
+
+findElementById  (ONLY ONE!)
+
+```JS
+var headingEl = document.getElementById("id-name");
+headingEl.innerHTML = "All about cats";
+```
+
+findElementsByTagName
+
+```JS
+var nameEls = document.getElementsByTagName("span");
+console.log(nameEls[0]);
+
+```
+
+findElementsByClassName
+
+```JS
+var nameEls = document.getElementsByClassName("animal");
+console.log(nameEls[0]);
+```
+
+document.querySelector(cssSelector)
+
+document.querySelectorAll(cssSelector)
+
+### Changing attributes
+
+```JS
+var imageEls = document.getElementsByTagName("img");
+	for (var i = 0; i < imageEls.length; i++) {
+        imageEls[i].src ="https://www.url.org/animals/cat.png";
+        }
+```
+
+### Adding an event listener
+
+```JS
+<button id="clicker">Boring button</button>
+<script>
+var clickerButton = document.getElementById("clicker");
+var onButtonClick = function() {
+        clickerButton.textContent = "Oh wow, you clicked me!";
+};
+clickerButton.addEventListener("click", onButtonClick);
+<script>
+```
+
+### Using the event properties
+
+```JS
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Using the event properties</title>
+        <style>
+        .beard {
+              	background: black;
+         		width: 5px;
+         		height: 5px;
+         		position: absolute;
+         		border-radius: 2px;
+         		top: 80px;
+         		left: 15px;
+         	}
+        </style>
+    </head>
+    <body>
+    
+    <img id="face" src="https://www.kasandbox.org/programming-images/creatures/Winston.png">
+    <div id="message"></div>
+    
+    <script>
+    // 1. Find and store the element we want to listen to events on.
+    var face = document.getElementById("face");
+    // 2. Define the function that will respond to the event.
+    var onMouseMove = function(event) {
+        console.log(e);
+        document.getElementById("message").textContent += "mooove ";         var beard = document.createElement("div");
+        beard.className = "beard";
+        document.body.appendChild(beard);
+        beard.style.top = event.clientY + "px";
+        beard.style.left = event.clientX + "px";
+        
+    };
+    // 3. Add the event listener for the element and function
+    face.addEventListener("mousemove", onMouseMove);
+    </script>
+    </body>
+</html>
+```
+
+### 
+
+
+
+Instrukcji return można używać doprzerywania działaniafunkcji nawet bezpodawania wartościwynikowej.
+
+tomasz.krajewski@dnvgl.com
+
+O: Funkcje zwrotne są bardzo ważne,gdyż pozwalają reagować na zdarzeniazachodzące poza Twoim kodem. Zamiastwywoływać funkcję ze swojego kodu,tworzysz funkcję, która oczekuje na pewnezdarzenia i jest gotowa do ich obsługi.Kiedy takie zdarzenie nastąpi, przeglądarkama obowiązek poinformować o tymfakcie odpowiednią funkcję zwrotną, czyliw rezultacie wywołać ją. Całe Twoje zadaniepolega na przygotowaniu teatru przyszłychzdarzeń, czyli skojarzeniu funkcji zwrotnejz „czynnikiem”, który ma powodować jejwykonanie, takim jak zdarzenie.
+
+
+
+w inne miejsce:
+
+W przeważającej większości przypadków kod JavaScript jest wykonywany w odpowiedzi na zdarzenia zachodzącena stronie, takie jak zakończenie jej wczytywania lub kliknięcie przycisku .Specjalny mechanizm JavaScriptu nazywany„zdarzeniami” pozwala na wykonywanie wskazanego fragmentu kodu, kiedy zajdzie jakieś zdarzenie.
+
+
+
+P: Skąd biorą się zdarzenia? Choć zdarzenia są wyzwalane przez użytkownika, to jednak w rzeczywistości generuje je przeglądarka. Oto przykład: „keypress” (naciśnięcie klawisza) to zdarzenie wyzwalane przez użytkownika w momencie,gdy naciśnie jeden z klawiszy; niemniej toprzeglądarka musi przygotować wszystkieinformacje na temat tego zdarzenia (ot,choćbyto, jaki klawisz naciśnięto), a następnieprzekazać je do funkcji, która ma je obsłużyć.
+
+
+
+document.getElementById("rockImg").style.height
+
+
+
+Cloud
